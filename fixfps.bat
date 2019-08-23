@@ -1,3 +1,11 @@
+@echo off
+
+if "%~1"=="" (goto usage) else (goto execute)
+:usage
+echo "Usage: %0 C:\path\to\file"
+GOTO:EOF
+
+:execute
 mp4box -add %1#video -raw 1 -new video
 mp4box -add video_track1.h264:fps=60 -new video_%1
 mp4box -add %1#audio %1.m4a
